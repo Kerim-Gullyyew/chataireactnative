@@ -1,21 +1,17 @@
-import './gesture-handler';
 import React from 'react';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 import {store, persistor} from './src/store/store';
 import {Text} from 'react-native';
-import Navigation from './src/navigation/Navigation';
-
-interface AppProps {}
-
-const App: React.FC<AppProps> = () => {
+import App from './App';
+const AppWrapper = () => {
   return (
     <Provider store={store}>
       <PersistGate loading={<Text>Loading...</Text>} persistor={persistor}>
-        <Navigation />
+        <App />
       </PersistGate>
     </Provider>
   );
 };
 
-export default App;
+export default AppWrapper;
